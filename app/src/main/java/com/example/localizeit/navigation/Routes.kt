@@ -1,0 +1,16 @@
+package com.example.localizeit.navigation
+
+const val ROUTE_WELCOME = "welcome"
+const val ROUTE_REGISTER = "register"
+const val ROUTE_LOGIN = "login"
+const val ROUTE_DASHBOARD = "dashboard"
+const val ROUTE_SETTINGS= "settings"
+const val ROUTE_AGRICULTURE = "agriculture"
+const val ROUTE_PROFILE = "profile"
+const val ROUTE_ADD_COURSE = "addcourse"
+const val ROUTE_VIEW_COURSE = "viewcourse"
+const val ROUTE_LANGUAGE = "language"
+const val ROUTE_BUSINESS = "business"
+const val ROUTE_TECHNOLOGY = "technology"
+const val ROUTE_HEALTHCARE = "healthcare"
+const val ROUTE_LOCAL_SERVICES = "localservices"
