@@ -41,6 +41,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -107,6 +108,7 @@ fun RegisterScreen( navController: NavController){
                 onValueChange = { newFirstName -> firstname = newFirstName },
                 label = { Text(text = "Enter first name") },
                 placeholder = { Text(text = "Please enter firstname") },
+                textStyle = TextStyle(color = Color.White),
                 modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(16.dp),
                 leadingIcon = {Icon(imageVector = Icons.Default.Person, contentDescription = "person")}
@@ -117,6 +119,8 @@ fun RegisterScreen( navController: NavController){
                 onValueChange = { newlastName -> lastname = newlastName },
                 label = { Text(text = "Enter last name") },
                 placeholder = { Text(text = "Please enter lastname") },
+                textStyle = TextStyle(color = Color.White),
+
                 modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(16.dp),
                 leadingIcon = {Icon(imageVector = Icons.Default.Person, contentDescription = "person")}
@@ -126,6 +130,8 @@ fun RegisterScreen( navController: NavController){
                 onValueChange = { newEmail -> email = newEmail },
                 label = { Text(text = "Enter email") },
                 placeholder = { Text(text = "Please enter email") },
+                textStyle = TextStyle(color = Color.White),
+
                 modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(16.dp),
                 leadingIcon ={ Icon(imageVector = Icons.Default.Email, contentDescription = "email")}
@@ -137,6 +143,8 @@ fun RegisterScreen( navController: NavController){
                 onValueChange = { newPassword -> password = newPassword },
                 label = { Text(text = "Enter password") },
                 placeholder = { Text(text = "Please enter password") },
+                textStyle = TextStyle(color = Color.White),
+
                 modifier = Modifier
                     .wrapContentWidth()
                     .align(Alignment.CenterHorizontally),

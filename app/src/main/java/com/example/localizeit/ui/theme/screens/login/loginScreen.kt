@@ -35,6 +35,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -95,7 +96,8 @@ fun LoginScreen(navController: NavController) {
                 value = email,
                 onValueChange = { newEmail -> email = newEmail },
                 label = { Text(text = "Enter email") },
-                placeholder = { Text(text = "Please enter email") },
+                placeholder = { Text(text = "Please enter email", color = Color.LightGray) },
+                textStyle = TextStyle(color = Color.White),
                 modifier = Modifier.wrapContentWidth().align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(16.dp)
             )
@@ -105,6 +107,7 @@ fun LoginScreen(navController: NavController) {
                 onValueChange = { newPassword -> password = newPassword },
                 label = { Text(text = "Enter password") },
                 placeholder = { Text(text = "Please enter password") },
+                textStyle = TextStyle(color = Color.White),
                 modifier = Modifier
                     .wrapContentWidth()
                     .align(Alignment.CenterHorizontally),

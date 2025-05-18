@@ -79,5 +79,27 @@ class CourseViewModel : ViewModel() {
                 _error.value = e.message
             }
     }
+    fun updateCourse(course: Course) {
+
+
+        val courseId = course.id
+        val updates = mapOf(
+            "title" to course.title,
+            "description" to course.description
+        )
+
+        FirebaseDatabase.getInstance()
+            .getReference("courses")
+            .child(courseId)
+            .updateChildren(updates)
+            .addOnSuccessListener {
+                loadCourses() // reload updated data
+
+            }
+            .addOnFailureListener { exception ->
+
+            }
+    }
+
 
 }

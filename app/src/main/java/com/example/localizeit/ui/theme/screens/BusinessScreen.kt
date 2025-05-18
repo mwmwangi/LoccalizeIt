@@ -30,6 +30,7 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
 import androidx.navigation.compose.rememberNavController
 import com.example.localizeit.R
+import com.example.localizeit.navigation.ROUTE_BUSINESS
 
 @Composable
 fun BusinessScreen(navController: NavController) {
@@ -122,14 +123,16 @@ fun BusinessScreen(navController: NavController) {
                     .fillMaxWidth()
                     .padding(vertical = 8.dp),
                 colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f)),
-                elevation = CardDefaults.cardElevation(6.dp)
+                elevation = CardDefaults.cardElevation(6.dp),
+               onClick = {navController}
             ) {
                 Text(
                     text = module,
                     fontSize = 18.sp,
                     modifier = Modifier.padding(16.dp),
                     fontWeight = FontWeight.Medium,
-                    color = Color.Black
+                    color = Color.Black,
+
                 )
             }
         }

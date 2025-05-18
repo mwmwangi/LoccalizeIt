@@ -20,6 +20,7 @@ import com.example.localizeit.ui.screens.ViewCourseScreen
 //import com.example.localizeit.ui.screens.ViewCourseActivity
 import com.example.localizeit.ui.theme.screens.AgricultureScreen
 import com.example.localizeit.ui.theme.screens.BusinessScreen
+//import com.example.localizeit.ui.theme.screens.EditCourseScreen
 import com.example.localizeit.ui.theme.screens.HealthcareScreen
 import com.example.localizeit.ui.theme.screens.LanguageScreen
 import com.example.localizeit.ui.theme.screens.LocalServicesScreen
@@ -39,7 +40,13 @@ fun LocalizeItApp() {
         composable(ROUTE_LOGIN) { LoginScreen(navController) }
         composable(ROUTE_REGISTER) { RegisterScreen(navController) }
         composable(ROUTE_DASHBOARD) { DashboardScreen(navController) }
-         composable(ROUTE_PROFILE) { ProfileScreen(navController) }
+//        composable("${ROUTE_EDIT_COURSE}/{courseId}") { backStackEntry ->
+//
+//        val courseId = backStackEntry.arguments?.getString("courseId")
+//            EditCourseScreen(courseId = courseId, navController = navController)
+//        }
+
+        composable(ROUTE_PROFILE) { ProfileScreen(navController) }
         composable(ROUTE_SETTINGS) { SettingsScreen(navController) }
        composable(ROUTE_LANGUAGE) { LanguageScreen(navController) }
         composable(ROUTE_BUSINESS) { BusinessScreen(navController) }
