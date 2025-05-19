@@ -13,6 +13,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.coursesapp.ui.DashboardScreen
 import com.example.localizeit.SettingsScreen
+import com.example.localizeit.business.FinancialPlanningScreen
+import com.example.localizeit.business.IdentifyingLocalNeedsScreen
+import com.example.localizeit.business.StartingBusinessScreen
 //import com.example.localizeit.ui.screens.ViewCourseActivity
 import com.example.localizeit.ui.screens.AddCourseScreen
 import com.example.localizeit.ui.screens.ProfileScreen
@@ -47,6 +50,7 @@ fun LocalizeItApp() {
 //        }
 
         composable(ROUTE_PROFILE) { ProfileScreen(navController) }
+        composable(ROUTE_FINANCIAL_PLANNING) { FinancialPlanningScreen(navController) }
         composable(ROUTE_SETTINGS) { SettingsScreen(navController) }
        composable(ROUTE_LANGUAGE) { LanguageScreen(navController) }
         composable(ROUTE_BUSINESS) { BusinessScreen(navController) }
@@ -60,7 +64,9 @@ fun LocalizeItApp() {
          composable(ROUTE_AGRICULTURE) { AgricultureScreen(navController) }
           composable(ROUTE_ADD_COURSE) { AddCourseScreen(navController) }
 
-//        composable(ROUTE_SERVICE_DIRECTORY) { ServicesDirectoryScreen(navController) }
+     composable(ROUTE_IDENTIFY_NEEDS) { IdentifyingLocalNeedsScreen(navController) }
        composable(ROUTE_VIEW_COURSE) { ViewCourseScreen (navController) }
+        composable(ROUTE_START_BUSINESS) { StartingBusinessScreen (navController) }
+
     }
 }

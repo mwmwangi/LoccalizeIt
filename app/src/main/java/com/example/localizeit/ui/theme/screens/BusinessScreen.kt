@@ -1,11 +1,10 @@
 package com.example.localizeit.ui.theme.screens
 
-
-
 import android.net.Uri
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -24,13 +23,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.navigation.NavController
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.localizeit.R
-import com.example.localizeit.navigation.ROUTE_BUSINESS
+import com.example.localizeit.navigation.ROUTE_FINANCIAL_PLANNING
+import com.example.localizeit.navigation.ROUTE_IDENTIFY_NEEDS
+import com.example.localizeit.navigation.ROUTE_START_BUSINESS
 
 @Composable
 fun BusinessScreen(navController: NavController) {
@@ -105,34 +106,34 @@ fun BusinessScreen(navController: NavController) {
             color = Color.White
         )
 
-        val modules = listOf(
-            "Starting a Business",
-            "Identifying Local Needs",
-            "Financial Planning",
-            "Digital Marketing Basics",
-            "Sourcing and Supply Chain",
-            "Customer Engagement",
-            "Legal and Licensing Tips"
-        )
-
         Spacer(modifier = Modifier.height(12.dp))
 
-        modules.forEach { module ->
+        // Each module is now paired with a route name
+        val modules = listOf(
+            "Starting a Business" to ROUTE_START_BUSINESS,
+            "Identifying Local Needs" to ROUTE_IDENTIFY_NEEDS,
+            "Financial Planning" to ROUTE_FINANCIAL_PLANNING,
+            "Digital Marketing Basics" to "digital_marketing_screen",
+            "Sourcing and Supply Chain" to "supply_chain_screen",
+            "Customer Engagement" to "customer_engagement_screen",
+            "Legal and Licensing Tips" to "legal_tips_screen"
+        )
+
+        modules.forEach { (title, route) ->
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 8.dp),
+                    .padding(vertical = 8.dp)
+                    .clickable { navController.navigate(route) },
                 colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f)),
-                elevation = CardDefaults.cardElevation(6.dp),
-               onClick = {navController}
+                elevation = CardDefaults.cardElevation(6.dp)
             ) {
                 Text(
-                    text = module,
+                    text = title,
                     fontSize = 18.sp,
                     modifier = Modifier.padding(16.dp),
                     fontWeight = FontWeight.Medium,
-                    color = Color.Black,
-
+                    color = Color.Black
                 )
             }
         }
@@ -166,9 +167,9 @@ fun BusinessVideoPlayer(videoUrl: String) {
             .height(250.dp)
     )
 }
+
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-fun BusinessScreenPreview(){
+fun BusinessScreenPreview() {
     BusinessScreen(navController = rememberNavController())
-
 }
