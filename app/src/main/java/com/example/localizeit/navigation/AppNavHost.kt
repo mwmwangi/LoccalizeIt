@@ -16,6 +16,7 @@ import com.example.localizeit.SettingsScreen
 import com.example.localizeit.business.FinancialPlanningScreen
 import com.example.localizeit.business.IdentifyingLocalNeedsScreen
 import com.example.localizeit.business.StartingBusinessScreen
+import com.example.localizeit.healthcare.BasicHygieneProjectsScreen
 //import com.example.localizeit.ui.screens.ViewCourseActivity
 import com.example.localizeit.ui.screens.AddCourseScreen
 import com.example.localizeit.ui.screens.ProfileScreen
@@ -57,6 +58,7 @@ fun LocalizeItApp() {
         composable(ROUTE_TECHNOLOGY) { TechnologyScreen(navController) }
         composable(ROUTE_LOCAL_SERVICES) { LocalServicesScreen(navController) }
         composable(ROUTE_HEALTHCARE) { HealthcareScreen(navController) }
+        composable(ROUTE_BASIC_HYGIENE) { BasicHygieneProjectsScreen(navController) }
 
 
 

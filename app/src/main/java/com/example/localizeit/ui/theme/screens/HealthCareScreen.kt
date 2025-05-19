@@ -1,18 +1,16 @@
 package com.example.localizeit.ui.theme.screens
 
-import androidx.compose.runtime.remember
-
-
-
 import android.net.Uri
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -24,12 +22,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.navigation.NavController
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.ui.PlayerView
+import androidx.navigation.NavController
 import com.example.localizeit.R
-//import com.localizelt.R
+import com.example.localizeit.navigation.ROUTE_BASIC_HYGIENE
 
 @Composable
 fun HealthcareScreen(navController: NavController) {
@@ -104,28 +102,29 @@ fun HealthcareScreen(navController: NavController) {
             color = Color.White
         )
 
-        val modules = listOf(
-            "Basic Hygiene Practices",
-            "Nutrition and Diet",
-            "First-Aid Basics",
-            "Recognizing Common Illnesses",
-            "Maternal and Child Health",
-            "Mental Health Awareness",
-            "Local Healthcare Access"
-        )
-
         Spacer(modifier = Modifier.height(12.dp))
 
-        modules.forEach { module ->
+        val modules = listOf(
+            "Basic Hygiene Practices" to ROUTE_BASIC_HYGIENE,
+            "Nutrition and Diet" to "route_nutrition",
+            "First-Aid Basics" to "route_first_aid",
+            "Recognizing Common Illnesses" to "route_illnesses",
+            "Maternal and Child Health" to "route_maternal_health",
+            "Mental Health Awareness" to "route_mental_health",
+            "Local Healthcare Access" to "route_local_access"
+        )
+
+        modules.forEach { (title, route) ->
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 8.dp),
+                    .padding(vertical = 8.dp)
+                    .clickable { navController.navigate(route) },
                 colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.9f)),
                 elevation = CardDefaults.cardElevation(6.dp)
             ) {
                 Text(
-                    text = module,
+                    text = title,
                     fontSize = 18.sp,
                     modifier = Modifier.padding(16.dp),
                     fontWeight = FontWeight.Medium,
